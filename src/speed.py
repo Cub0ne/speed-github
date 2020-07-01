@@ -10,6 +10,7 @@ import datetime
 
 sites =[ 
 	"github.com",
+	"www.github.com",
 	"github.global.ssl.fastly.net",
 	"assets-cdn.github.com",
 	"documentcloud.github.com",
@@ -20,8 +21,23 @@ sites =[
 	"status.github.com",
 	"training.github.com",
 	"ithubusercontent.com",
+	"codeload.github.com",
+	"avatars0.githubusercontent.com",
 	"avatars1.githubusercontent.com",
-	"codeload.github.com"
+	"avatars2.githubusercontent.com",
+	"avatars3.githubusercontent.com",
+	"avatars4.githubusercontent.com",
+	"avatars5.githubusercontent.com",
+	"avatars6.githubusercontent.com",
+	"avatars7.githubusercontent.com",
+	"avatars8.githubusercontent.com",
+	"camo.githubusercontent.com",
+	"cloud.githubusercontent.com",
+	"gist.githubusercontent.com",
+	"marketplace-screenshots.githubusercontent.com",
+	"raw.githubusercontent.com",
+	"repository-images.githubusercontent.com",
+	"user-images.githubusercontent.com"
 	]
 	
 addr2ip = {}
@@ -58,7 +74,7 @@ def generateDict():
 		ip = getIp(site)
 		if ip != None:
 			addr2ip[site] = ip
-			print(site+"\t"+ip)
+			print(ip+"\t"+site)
 		
 
 def chachong(line):
@@ -76,22 +92,11 @@ def chachong(line):
 def updateHost():
 	generateDict()
 	today = datetime.date.today()
-	hostLocation = "C:\Windows\System32\drivers\etc\hosts"
-	shutil.copy("C:\Windows\System32\drivers\etc\hosts", "C:\Windows\System32\drivers\etc\hosts.bak") # 做一份host备份
-	f1 = open("C:\Windows\System32\drivers\etc\hosts", "r")
-	lines = f1.readlines()
-	f2 = open("temphost", "w")
-	
-	for line in lines:                       # 为了防止host越写用越长，需要删除之前更新的含有github相关内容
-		if chachong(line) == False:
-			f2.write(line)
-	f2.write("\n\n #*********************github "+str(today) +" 更新********************\n")
+	f = open("hosts", "w")
+
+	f.write("\n\n #*********************github "+str(today) +" 更新********************\n")
 	for key in addr2ip:
-		f2.write(addr2ip[key]+"\t"+key+"\n")
-	f1.close()
-	f2.close()
-	
-	shutil.copy("./temphost", "C:\Windows\System32\drivers\etc\hosts") #覆盖原来的host
-	os.system("ipconfig /flushdns")
+		f.write(addr2ip[key]+"\t"+key+"\n")
+	f.close()
 	
 updateHost()	
