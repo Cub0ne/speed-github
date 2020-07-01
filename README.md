@@ -1,5 +1,5 @@
 # speed-github
-一键解决github在国内加载和下载速度慢的问题
+可能会解决github在国内加载和下载速度慢的问题
 
 
 ### 速度慢原因
@@ -16,19 +16,25 @@ CDN，Content Distribute Network，可以直译成内容分发网络，CDN解决
 直接获取ip地址并绑定本地host，绕过DNS解析。通过脚本获取下列网址ip
 <pre>
 <code>
-	github.com
-	github.global.ssl.fastly.net
-	assets-cdn.github.com
-	documentcloud.github.com
 	gist.github.com
-	help.github.com
-	nodeload.github.com
-	raw.github.com
-	status.github.com
-	training.github.com
-	ithubusercontent.com
-	avatars1.githubusercontent.com
-	codeload.github.com
+    github.com
+    www.github.com
+    avatars0.githubusercontent.com
+    avatars1.githubusercontent.com
+    avatars2.githubusercontent.com
+    avatars3.githubusercontent.com
+    avatars4.githubusercontent.com
+    avatars5.githubusercontent.com
+    avatars6.githubusercontent.com
+    avatars7.githubusercontent.com
+    avatars8.githubusercontent.com
+    camo.githubusercontent.com
+    cloud.githubusercontent.com
+    gist.githubusercontent.com
+    marketplace-screenshots.githubusercontent.com
+    raw.githubusercontent.com
+    repository-images.githubusercontent.com
+    user-images.githubusercontent.com
 </code>
 </pre>
 
@@ -44,11 +50,4 @@ CDN，Content Distribute Network，可以直译成内容分发网络，CDN解决
 	- shutil
 
 ### 使用方式
- 
-
-
-1. 用记事本或notepad++打开startFly.bat文件，将 var变量值改成你自己存放该项目的地址
-2. 右键点击startFly.bat, 以管理员身份运行
-
-### 效果图
-![Ok啦](https://github.com/jvxiao/speed-github/blob/master/img/screenShot.PNG)
+ 此分支产出host文件，目标是每天更新，推荐使用SwitchHost软件远程更新
